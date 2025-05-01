@@ -153,27 +153,27 @@ flowchart TD
 ```mermaid
 flowchart LR
     subgraph "Data Replication and Recovery"
-        Primary["Primary Instance\n(Write Operations)"]
-        Replica1["Replica 1\n(Read Operations)"]
-        Replica2["Replica 2\n(Read Operations)"]
+        Primary["Primary Instance (Write Operations)"]
+        Replica1["Replica 1 (Read Operations)"]
+        Replica2["Replica 2 (Read Operations)"]
         
         subgraph "Point-in-Time Recovery (PITR)"
             FullBackup["Daily Full Backup"]
-            WALArchive["Continuous WAL/Binlog\nArchive"]
-            PITR["Point-in-Time\nRecovery Process"]
+            WALArchive["Continuous WAL/Binlog Archive"]
+            PITR["Point-in-Time Recovery Process"]
         end
         
         %% Replication using WAL/binlog
-        Primary -->|"WAL/binlog\nreplication"| Replica1
-        Primary -->|"WAL/binlog\nreplication"| Replica2
+        Primary -->|"WAL/binlog replication"| Replica1
+        Primary -->|"WAL/binlog replication"| Replica2
         
         %% Backup and PITR processes
         Primary -->|"Daily backup"| FullBackup
-        Primary -->|"Continuous\ntransaction logs"| WALArchive
+        Primary -->|"Continuous transaction logs"| WALArchive
         
         %% PITR process
-        FullBackup -->|"Restore\nbase state"| PITR
-        WALArchive -->|"Apply logs up to\ndesired time point"| PITR
+        FullBackup -->|"Restore base state"| PITR
+        WALArchive -->|"Apply logs up to desired time point"| PITR
         
         %% Notes for clarification
         style Primary fill:#f96,stroke:#333,stroke-width:2px
