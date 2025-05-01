@@ -9,7 +9,6 @@ Content Delivery Networks are distributed server networks that deliver web conte
 
 **Best Practices:**
 - **Implement Global CDNs**: Distribute static assets (JavaScript, CSS, images) across geographically dispersed servers to reduce latency and improve load times
-- **Edge Caching**: Cache content at edge locations closest to users for faster access and reduced origin server load
 - **CDN Selection Criteria**:
   - Geographic coverage matching your user base
   - Performance metrics (TTFB, throughput)
@@ -48,8 +47,6 @@ Content Delivery Networks are distributed server networks that deliver web conte
 - Implement resource limits and requests to prevent resource starvation
 
 **Container Security:**
-- Implement read-only file systems where possible
-- Use security contexts to restrict container capabilities
 - Regular security scanning and patching
 - Network policies to control container communication
 
@@ -92,6 +89,54 @@ Content Delivery Networks are distributed server networks that deliver web conte
 ## 3. Database Architecture
 
 ### 3.1 Database Proxies
+
+```mermaid
+flowchart TD
+    subgraph "Application Layer"
+        App1[Application Instance 1]
+        App2[Application Instance 2]
+        App3[Application Instance 3]
+        AppN[Application Instance N]
+    end
+    
+    subgraph "Database Proxy Layer"
+        Proxy["Database Proxy
+        ------------------
+        Connection Pooling
+        Load Balancing
+        Query Caching
+        Failover Routing
+        Connection Storm Protection"]
+    end
+    
+    subgraph "Database Layer"
+        DB[(Primary Database)]
+    end
+    
+    %% Connection lines from apps to proxy
+    App1 --> Proxy
+    App2 --> Proxy
+    App3 --> Proxy
+    AppN --> Proxy
+    
+    %% Connection lines from proxy to database
+    Proxy --> DB
+    
+    %% Connection numbers
+    classDef connections fill:transparent,stroke:transparent
+    
+    ManyConnIn[Many individual<br>application connections]:::connections
+    FewConnOut[Few pooled<br>database connections]:::connections
+    
+    App1 -.- ManyConnIn
+    App2 -.- ManyConnIn
+    App3 -.- ManyConnIn
+    AppN -.- ManyConnIn
+    
+    ManyConnIn -.- Proxy
+    Proxy -.- FewConnOut
+    FewConnOut -.- DB
+```
 
 **Implementation Benefits:**
 - Connection pooling to reduce database connection overhead
