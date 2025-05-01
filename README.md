@@ -1,5 +1,4 @@
 # Edric Coaching Module 4 - Week 5
-# Web Application Deployment Architecture Best Practices
 
 ## 1. Frontend Architecture
 
