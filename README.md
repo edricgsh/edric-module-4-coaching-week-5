@@ -150,6 +150,41 @@ flowchart TD
 
 ### 3.2 Data Redundancy and Recovery
 
+```mermaid
+flowchart LR
+    subgraph "Data Replication and Recovery"
+        Primary["Primary Instance\n(Write Operations)"]
+        Replica1["Replica 1\n(Read Operations)"]
+        Replica2["Replica 2\n(Read Operations)"]
+        
+        subgraph "Point-in-Time Recovery (PITR)"
+            FullBackup["Daily Full Backup"]
+            WALArchive["Continuous WAL/Binlog\nArchive"]
+            PITR["Point-in-Time\nRecovery Process"]
+        end
+        
+        %% Replication using WAL/binlog
+        Primary -->|"WAL/binlog\nreplication"| Replica1
+        Primary -->|"WAL/binlog\nreplication"| Replica2
+        
+        %% Backup and PITR processes
+        Primary -->|"Daily backup"| FullBackup
+        Primary -->|"Continuous\ntransaction logs"| WALArchive
+        
+        %% PITR process
+        FullBackup -->|"Restore\nbase state"| PITR
+        WALArchive -->|"Apply logs up to\ndesired time point"| PITR
+        
+        %% Notes for clarification
+        style Primary fill:#f96,stroke:#333,stroke-width:2px
+        style Replica1 fill:#9cf,stroke:#333,stroke-width:1px
+        style Replica2 fill:#9cf,stroke:#333,stroke-width:1px
+        style FullBackup fill:#9f9,stroke:#333,stroke-width:1px
+        style WALArchive fill:#fc9,stroke:#333,stroke-width:1px
+        style PITR fill:#c9f,stroke:#333,stroke-width:1px
+    end
+```
+
 **Replication Strategies:**
 - Primary-Replica (Leader-Follower) model:
   - One primary (write) instance with multiple read replicas
