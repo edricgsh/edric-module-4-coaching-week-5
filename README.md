@@ -38,6 +38,9 @@
 **What are CDNs?**
 Content Delivery Networks are distributed server networks that deliver web content to users based on their geographic location, the origin of the webpage, and the content delivery server.
 
+<img width="830" alt="image" src="https://github.com/user-attachments/assets/f7efdfa7-156d-4074-94b3-cfefb6cf0d16" />
+
+
 **Best Practices:**
 - **Implement Global CDNs**: Distribute static assets (JavaScript, CSS, images) across geographically dispersed servers to reduce latency and improve load times
 - **CDN Selection Criteria**:
