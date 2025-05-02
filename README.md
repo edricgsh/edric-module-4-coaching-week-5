@@ -1,5 +1,36 @@
 # Edric Coaching Module 4 - Week 5
 
+# Feedback from Edric for presentation
+
+- **Test your pipeline**: You should treat your CI/CD pipeline as a piece of code and testing is important
+  - Example: Using real tokens in your code scanning test to validate that your authentication implementation works correctly in production-like conditions.
+
+- **Frontend security**: Do not put secret in your frontend, it is not safe
+  - Frontend code is accessible to users, making any secrets stored there vulnerable to theft and misuse.
+
+- **Environment variable handling**: The population of the environment variable could be simplified. You shouldn't need to inject into the .env file, you just have to inject the data into the runtime environment variable
+
+- **Container optimization**: Multi stage build, you might need a lot of extra dependencies during your build stage but you can use a leaner image when serving them
+  - Including unneeded tools in your production container increases image size and potential attack surface.
+
+- **Branch naming convention**: Don't use develop as the default branch, use main
+  - Using "main" aligns with modern Git conventions and creates a more intuitive workflow.
+
+- **Deployment versioning**: Using the latest is not the best approach, ideally you should generate the release version using semantic versioning.
+  - Specifying exact versions ensures deployment consistency and enables controlled rollbacks when needed.
+
+- **Developer experience**: Think about the user experience of a developer when you are designing the CI/CD pipeline
+  - User-friendly CI/CD pipelines increase adoption, reduce developer's frustration, and improve overall productivity.
+
+- **Service co-location**: Your server and database should be close to each other, ideally in the same region
+  - Keeping related services in the same region minimizes latency, improves performance, and can reduce costs.
+
+- **Choose the right tool**: Tools like AWS are very powerful, you can provide permission on a very fine grained level, but it is also more complicated at the same time, so choose your tool wisely based on your team expertise and needs.
+
+- **Setup budget alert**: Budget alert is important. Set it up before you pay a giant bill!
+
+
+# Deployment Best Practices
 ## 1. Frontend Architecture
 
 ### 1.1 Content Delivery Networks (CDNs)
