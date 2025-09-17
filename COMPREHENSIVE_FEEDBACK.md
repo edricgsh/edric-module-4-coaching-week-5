@@ -262,13 +262,3 @@ flowchart TD
 - Experiment with new technologies in side projects
 
 ---
-
-## Additional Resources
-
-### Learning Platforms
-- [GeeksforGeeks - Feynman Technique](https://www.geeksforgeeks.org/blogs/feynman-technique/)
-- [Coursera - Troubleshooting and Debugging Techniques](https://www.coursera.org/learn/troubleshooting-debugging-techniques)
-
-### CI/CD and Testing
-- [JetBrains CI/CD Best Practices](https://www.jetbrains.com/teamcity/ci-cd-guide/ci-cd-best-practices/)
-- [Baeldung - Spring Boot TestContainers](https://www.baeldung.com/spring-boot-testcontainers-integration-test)
