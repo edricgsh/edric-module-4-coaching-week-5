@@ -57,6 +57,44 @@
 
 **Example Scenario**: Local Spring application cannot connect to cloud Heroku database
 
+```mermaid
+flowchart TD
+    A[Spring App Cannot Connect to Heroku DB] --> B[Formulate Hypothesis]
+    B --> C{What could be the cause?}
+    C --> D[Network/Cloud Issue]
+    C --> E[Spring Config Issue]
+    C --> F[Database Issue]
+    
+    B --> G[Isolate the Issue]
+    G --> H[Test: Switch to Local Database]
+    
+    H --> I{Can connect to local DB?}
+    I -->|Yes| J[Problem is Cloud/Network Related]
+    I -->|No| K[Problem is in Spring Application]
+    
+    J --> L[Check Heroku Database]
+    L --> M[Verify network connectivity]
+    L --> N[Check firewall rules]
+    L --> O[Validate connection string]
+    
+    K --> P[Check Spring Configuration]
+    P --> Q[Review application.properties]
+    P --> R[Check database driver]
+    P --> S[Verify connection pool settings]
+    
+    style A fill:#ff9999
+    style J fill:#99ccff
+    style K fill:#99ccff
+    style L fill:#99ff99
+    style M fill:#99ff99
+    style N fill:#99ff99
+    style O fill:#99ff99
+    style P fill:#ffff99
+    style Q fill:#ffff99
+    style R fill:#ffff99
+    style S fill:#ffff99
+```
+
 **Troubleshooting Steps**:
 1. **Formulate a hypothesis** - What could be causing the connection issue?
 2. **Isolate the issue** - Change cloud Heroku to local database
