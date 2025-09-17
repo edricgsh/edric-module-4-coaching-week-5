@@ -132,6 +132,7 @@ flowchart TD
 - Use variables to switch between local and dev environments seamlessly
 - Create environment-specific variable sets
 - Maintain consistent API testing across different deployment stages
+<img width="1141" height="550" alt="image" src="https://github.com/user-attachments/assets/812cc383-75a4-4854-8b08-ca4eaf0b1656" />
 
 ---
 
@@ -260,5 +261,3 @@ flowchart TD
 - Attend meetups, conferences, and online workshops
 - Follow thought leaders and technical blogs
 - Experiment with new technologies in side projects
-
----
